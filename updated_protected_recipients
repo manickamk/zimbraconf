@@ -1,0 +1,6 @@
+#!/bin/bash
+echo "rebuild permitted_senders..."
+postmap /opt/zimbra/postfix/conf/permitted_senders_frs_all
+echo "rebuild protected_recipients..."
+postmap /opt/zimbra/postfix/conf/protected_recipients
+

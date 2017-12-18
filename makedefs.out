@@ -1,0 +1,65 @@
+# Do not edit -- this file documents how Postfix was built for your machine.
+SYSTYPE	= LINUX2
+AR	= ar
+ARFL	= rv
+RANLIB	= ranlib
+SYSLIBS	= -L/opt/zimbra/cyrus-sasl-2.1.26.2z/lib \
+-L/opt/zimbra/bdb-5.2.36/lib -ldb -L/opt/zimbra/openldap-2.4.38.2z/lib -lpcre \
+-lldap -llber \
+-L/opt/zimbra/mysql-standard-5.5.32-pc-linux-gnu-i686-glibc23/lib \
+-L/opt/zimbra/openssl-1.0.1e/lib \
+-lmysqlclient -lz -lm -L/usr/lib -lsasl2 -lpthread -lssl -lcrypto -ldb -lnsl -lresolv
+CC	= gcc $(WARN) -DDEF_COMMAND_DIR=\"/opt/zimbra/postfix-2.10.1.2z/sbin\" \
+-DDEF_DAEMON_DIR=\"/opt/zimbra/postfix-2.10.1.2z/libexec\" \
+-DDEF_CONFIG_DIR=\"/opt/zimbra/postfix-2.10.1.2z/conf\" \
+-DDEF_QUEUE_DIR=\"/opt/zimbra/data/postfix/spool\" \
+-DDEF_SENDMAIL_PATH=\"/opt/zimbra/postfix-2.10.1.2z/sbin/sendmail\" \
+-DDEF_NEWALIAS_PATH=\"/opt/zimbra/postfix-2.10.1.2z/sbin/newaliases\" \
+-DDEF_MAILQ_PATH=\"/opt/zimbra/postfix-2.10.1.2z/sbin/mailq\" \
+-DDEF_MANPAGE_DIR=\"/opt/zimbra/postfix-2.10.1.2z/man\" \
+-DDEF_HTML_DIR=\"no\" \
+-DDEF_README_DIR=\"no\" \
+-DDEF_SENDMAIL_PATH=\"/opt/zimbra/postfix-2.10.1.2z/sbin/sendmail\" \
+-DDEF_DATA_DIR=\"/opt/zimbra/data/postfix/data\" \
+-DUSE_SASL_AUTH \
+-DUSE_CYRUS_SASL \
+-DHAS_LDAP -DHAS_MYSQL -DUSE_TLS -I/opt/zimbra/bdb-5.2.36/include -DHAS_PCRE -I/usr/include/pcre \
+ \
+-DUSE_LDAP_SASL \
+-I/opt/zimbra/openldap-2.4.38.2z/include \
+-I/opt/zimbra/mysql-standard-5.5.32-pc-linux-gnu-i686-glibc23/include \
+-I/opt/zimbra/openssl-1.0.1e/include \
+-I/opt/zimbra/cyrus-sasl-2.1.26.2z/include/sasl -I/usr/include -I/opt/zimbra/bdb/include
+OPT	= -O2
+DEBUG	= -g
+AWK	= awk
+STRCASE = 
+EXPORT	= AUXLIBS='-L/opt/zimbra/cyrus-sasl-2.1.26.2z/lib \
+-L/opt/zimbra/bdb-5.2.36/lib -ldb -L/opt/zimbra/openldap-2.4.38.2z/lib -lpcre \
+-lldap -llber \
+-L/opt/zimbra/mysql-standard-5.5.32-pc-linux-gnu-i686-glibc23/lib \
+-L/opt/zimbra/openssl-1.0.1e/lib \
+-lmysqlclient -lz -lm -L/usr/lib -lsasl2 -lpthread -lssl -lcrypto' CCARGS='-DDEF_COMMAND_DIR=\"/opt/zimbra/postfix-2.10.1.2z/sbin\" \
+-DDEF_DAEMON_DIR=\"/opt/zimbra/postfix-2.10.1.2z/libexec\" \
+-DDEF_CONFIG_DIR=\"/opt/zimbra/postfix-2.10.1.2z/conf\" \
+-DDEF_QUEUE_DIR=\"/opt/zimbra/data/postfix/spool\" \
+-DDEF_SENDMAIL_PATH=\"/opt/zimbra/postfix-2.10.1.2z/sbin/sendmail\" \
+-DDEF_NEWALIAS_PATH=\"/opt/zimbra/postfix-2.10.1.2z/sbin/newaliases\" \
+-DDEF_MAILQ_PATH=\"/opt/zimbra/postfix-2.10.1.2z/sbin/mailq\" \
+-DDEF_MANPAGE_DIR=\"/opt/zimbra/postfix-2.10.1.2z/man\" \
+-DDEF_HTML_DIR=\"no\" \
+-DDEF_README_DIR=\"no\" \
+-DDEF_SENDMAIL_PATH=\"/opt/zimbra/postfix-2.10.1.2z/sbin/sendmail\" \
+-DDEF_DATA_DIR=\"/opt/zimbra/data/postfix/data\" \
+-DUSE_SASL_AUTH \
+-DUSE_CYRUS_SASL \
+-DHAS_LDAP -DHAS_MYSQL -DUSE_TLS -I/opt/zimbra/bdb-5.2.36/include -DHAS_PCRE -I/usr/include/pcre \
+ \
+-DUSE_LDAP_SASL \
+-I/opt/zimbra/openldap-2.4.38.2z/include \
+-I/opt/zimbra/mysql-standard-5.5.32-pc-linux-gnu-i686-glibc23/include \
+-I/opt/zimbra/openssl-1.0.1e/include \
+-I/opt/zimbra/cyrus-sasl-2.1.26.2z/include/sasl -I/usr/include -I/opt/zimbra/bdb/include' OPT='-O2' DEBUG='-g'
+WARN	= -Wall -Wno-comment -Wformat -Wimplicit -Wmissing-prototypes \
+	-Wparentheses -Wstrict-prototypes -Wswitch -Wuninitialized \
+	-Wunused -Wno-missing-braces
